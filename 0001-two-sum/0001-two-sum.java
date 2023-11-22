@@ -46,7 +46,9 @@ class Solution {
             numsWithIndex[i][0] = nums[i];
             numsWithIndex[i][1] = i;
         }
+        // Sorting numsWithIndex based on their value present in 0th index
         Arrays.sort(numsWithIndex, Comparator.comparingInt(arr -> arr[0]));
+        // Two-pointer method
         int left = 0;
         int right = numsSize - 1;
         while(left < right) {
@@ -56,6 +58,7 @@ class Solution {
             } else if (total > target) {
                 right -= 1;
             } else {
+                // returning the indices of the elements present in nums
                 return new int[]{numsWithIndex[left][1], numsWithIndex[right][1]};
             }
         }
