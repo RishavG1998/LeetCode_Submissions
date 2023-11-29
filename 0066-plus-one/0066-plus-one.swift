@@ -17,17 +17,5 @@ class Solution {
             tempDigits.insert(1, at: 0)
         }
         return tempDigits
-
-        // var tempDigits = digits
-        // for index in stride(from: tempDigits.count-1, to: -1, by: -1) {
-        //     if tempDigits[index] < 9 {
-        //         tempDigits[index] += 1
-        //         return tempDigits
-        //     } else {
-        //         tempDigits[index] = 0
-        //     }
-        // }
-        // tempDigits.insert(1, at: 0)
-        // return tempDigits
     }
 }
