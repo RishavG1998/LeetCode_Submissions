@@ -28,7 +28,14 @@ class Solution {
 	    // }
 	    // return last;
 
-    // 3M: DP
+    // 3M
+        // int[] dp = {0, 1, 1};
+        // for (int num=3; num<=n; num++) {
+        //     dp[num%3] = dp[0] + dp[1] + dp[2];
+        // }
+        // return dp[num%3];
+
+    // 4M: DP
         int[] dp = new int[n+1];
 	    Arrays.fill(dp, -1);
 	    return solve(n, dp);
