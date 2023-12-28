@@ -30,8 +30,8 @@ class Solution {
     final int MOD = (int) Math.pow(10, 9) + 7;
 
     public int numRollsToTarget(int n, int k, int target) {
-        if (n == 0 && target == 0) return 1;
-        if (target < n || n*k < target) return 0;
+        // if (n == 0 && target == 0) return 1;
+        // if (target < n || n*k < target) return 0;
 
         int[][] dp = new int [n+1][target+1];
         for (int[] d: dp) {
@@ -43,17 +43,17 @@ class Solution {
 
     public int recursion(int n, int k, int target, int[][] dp) {
         if (n == 0 && target == 0) return 1;
-        if (target < n || n*k < target) return 0;
+        // if (target < n || n*k < target) return 0;
+        if (n == 0 || target <= 0) return 0;
 
-        if (dp[n][target] != -1) return dp[n][target];
+        if (dp[n][target] != -1) return (int) (dp[n][target] % MOD);
 
-        int res = 0;
+        int ways = 0;
         for (int i=1; i<=k; i++) {
-            if (target < i) break;
-            res = (res + recursion(n-1, k, target-i, dp) % MOD) % MOD;
+            ways = (ways + recursion(n-1, k, target-i, dp)) % MOD;
         }
 
-        dp[n][target] = res;
-        return res;
+        dp[n][target] = ways % MOD;
+        return dp[n][target];
     }
 }
